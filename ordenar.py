@@ -1,17 +1,18 @@
 """ Funciones de ordenamiento"""
 
 from popup import popup
+import json
 
 
 def bubble_sort(numeros):
     tam = len(numeros) 
-    for i in range(0, tam): 
-        for j in range(0, tam-1): 
+    for i in range(tam):
+        for j in range(tam-i-1):
             if numeros[j] > numeros[j+1]: 
-                temporal = numeros[j]
-                numeros[j] = numeros[j+1]
-                numeros[j+1] = numeros
-    return numeros
+                numeros[j], numeros[j+1] = numeros[j+1], numeros[j]
+
+    with open("ordenados_burbuja.txt") as file:
+        json.dump(numeros, file)
 
 def insertion_sort(numeros):
     pass
