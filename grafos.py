@@ -1,5 +1,7 @@
 """ Algoritmos para Manipular Grafos """
 
+from popup import popup
+
 
 class Graph:
     def __init__(self, vertices):

@@ -3,7 +3,6 @@ Equipo: Iñaki Cornejo, Wenceslao Trejo, Adolfo Tun y Fernando Manzano"""
 
 import pathlib
 import tkinter as tk
-from popup import popup
 from ordenar import bubble_sort, insertion_sort, quicksort, heapsort
 from buscar import linear_search, binary_search
 from grafos import Graph
@@ -34,7 +33,7 @@ frm_ordenar.columnconfigure(0, weight=1)
 frm_ordenar.columnconfigure(1, weight=1)
 frm_ordenar.rowconfigure(1, weight=1)
 frm_ordenar.rowconfigure(2, weight=1)
-lbl_ordenar = tk.Label(text="Algoritmos de Ordenamiento",master=frm_ordenar)
+lbl_ordenar = tk.Label(text="Algoritmos de Ordenamiento", master=frm_ordenar)
 lbl_ordenar.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
 btn_burbuja = tk.Button(text="Burbuja", master=frm_ordenar, height=5,
                         command=bubble_sort)
