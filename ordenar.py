@@ -3,17 +3,23 @@
 from popup import popup
 
 
-def bubble_sort():
+def bubble_sort(numeros):
+    tam = len(numeros) 
+    for i in range(0, tam): 
+        for j in range(0, tam-1): 
+            if numeros[j] > numeros[j+1]: 
+                temporal = numeros[j]
+                numeros[j] = numeros[j+1]
+                numeros[j+1] = numeros
+    return numeros
+
+def insertion_sort(numeros):
     pass
 
 
-def insertion_sort():
+def quicksort(numeros):
     pass
 
 
-def quicksort():
-    pass
-
-
-def heapsort():
+def heapsort(numeros):
     pass

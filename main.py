@@ -7,7 +7,6 @@ from ordenar import bubble_sort, insertion_sort, quicksort, heapsort
 from buscar import linear_search, binary_search
 from grafos import Graph
 
-
 path = pathlib.Path.cwd().joinpath("valores.txt")
 numeros = []
 
@@ -36,16 +35,16 @@ frm_ordenar.rowconfigure(2, weight=1)
 lbl_ordenar = tk.Label(text="Algoritmos de Ordenamiento", master=frm_ordenar)
 lbl_ordenar.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
 btn_burbuja = tk.Button(text="Burbuja", master=frm_ordenar, height=5,
-                        command=bubble_sort)
+                        command=lambda: bubble_sort(numeros))
 btn_burbuja.grid(column=0, row=1, sticky="nsew", pady=(20, 0))
 btn_insercion = tk.Button(text="Insercion", master=frm_ordenar, height=5,
-                          command=insertion_sort)
+                          command=lambda: insertion_sort(numeros))
 btn_insercion.grid(column=1, row=1, sticky="nsew", pady=(20, 0))
 btn_quicksort = tk.Button(text="Quicksort", master=frm_ordenar, height=5,
-                          command=quicksort)
+                          command=lambda: quicksort(numeros))
 btn_quicksort.grid(column=0, row=2, sticky="nsew", pady=(0, 20))
 btn_heapsort = tk.Button(text="Heapsort", master=frm_ordenar, height=5,
-                         command=heapsort)
+                         command=lambda: heapsort(numeros))
 btn_heapsort.grid(column=1, row=2, sticky="nsew", pady=(0, 20))
 
 # Algoritmos de Búsqueda
@@ -60,7 +59,7 @@ linear_search_val = tk.StringVar()
 ent_lin = tk.Entry(master=frm_buscar, textvariable=linear_search_val)
 ent_lin.grid(column=0, row=2, sticky="new", pady=(5, 5))
 btn_lin = tk.Button(text="Buscar", master=frm_buscar,
-                    command=lambda: linear_search(linear_search_val))
+                    command=lambda: linear_search(linear_search_val, numeros))
 btn_lin.grid(column=1, row=2, sticky="new")
 lbl_bin = tk.Label(text="Búsqueda Binaria", master=frm_buscar,
                    relief=tk.SUNKEN)
@@ -69,7 +68,7 @@ binary_search_val = tk.StringVar()
 ent_bin = tk.Entry(master=frm_buscar, textvariable=binary_search_val)
 ent_bin.grid(column=0, row=4, sticky="new", pady=(5, 5))
 btn_bin = tk.Button(text="Buscar", master=frm_buscar,
-                    command=lambda: binary_search(binary_search_val))
+                    command=lambda: binary_search(binary_search_val, numeros))
 btn_bin.grid(column=1, row=4, sticky="new")
 
 # Algoritmos con Grafos

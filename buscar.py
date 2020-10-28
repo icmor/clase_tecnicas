@@ -4,10 +4,10 @@ from popup import popup
 
 
 def verify(func):
-    def wrapper(entry):
+    def wrapper(entry, numeros):
         value = entry.get()
         if value.isdigit():
-            func(int(value))
+            func(int(value), numeros)
         else:
             popup("Por favor ingresa un número.")
         entry.set("")
@@ -15,10 +15,10 @@ def verify(func):
 
 
 @verify
-def linear_search(number):
+def linear_search(num, numeros):
     pass
 
 
 @verify
-def binary_search(number):
+def binary_search(num, numeros):
     pass
