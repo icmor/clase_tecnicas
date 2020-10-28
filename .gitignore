@@ -1,3 +1,5 @@
 .replit
 *org
-__pychache__
+__pychache__/
+valores.py
+ordenados*
