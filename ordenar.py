@@ -16,13 +16,13 @@ def bubble_sort(numeros):
     with open("ordenados_burbuja.txt", "w") as file:
         json.dump(numeros, file)
     popup(f"¡Los números han sido ordenados!\n\
-Tiempo de ejecución: {total}\n\
+Tiempo de ejecución: {total}s\n\
 Archivo con resultados: ordenados_burbuja.txt")
 
 
 def insertion_sort(numeros):
     start = time.perf_counter()
-    for i in range(1,len(numeros)):
+    for i in range(1, len(numeros)):
         j = i - 1
         valor = numeros[i]
         while j >= 0 and valor < numeros[j]:
@@ -34,7 +34,7 @@ def insertion_sort(numeros):
     with open("ordenados_insercion.txt", "w") as file:
         json.dump(numeros, file)
     popup(f"¡Los números han sido ordenados!\n\
-Tiempo de ejecución: {total}\n\
+Tiempo de ejecución: {total}s\n\
 Archivo con resultados: ordenados_insercion.txt")
 
 
