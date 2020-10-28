@@ -39,8 +39,36 @@ Archivo con resultados: ordenados_insercion.txt")
 
 
 def quicksort(numeros):
-    pass
+    def sort(left, right):
+        if (left >= right):
+            return
+        pivot = numeros[(left+right)//2]
+        mid = partition(left, right, pivot)
+        sort(left, mid-1)
+        sort(mid, right)
 
+    def partition(left, right, pivot):
+        while left <= right:
+            while numeros[left] < pivot:
+                left += 1
+            while numeros[right] > pivot:
+                right -= 1
+
+            if left <= right:
+                numeros[left], numeros[right] = numeros[right], numeros[left]
+                left += 1
+                right -= 1
+        return left
+
+    start = time.perf_counter()
+    sort(0, len(numeros) - 1)
+    total = round(time.perf_counter() - start, 4)
+
+    with open("ordenados_quicksort.txt", "w") as file:
+        json.dump(numeros, file)
+    popup(f"¡Los números han sido ordenados!\n\
+Tiempo de ejecución: {total}s\n\
+Archivo con resultados: ordenados_quicksort.txt")
 
 def heapsort(numeros):
     pass
