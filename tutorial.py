@@ -24,11 +24,7 @@ print(lista)
 lista[0] #Acceder primer elemento
 start = 0
 end = 2
-<<<<<<< HEAD
 lista[start:end] # Retorna una lista con los valores
-=======
-lista[start:end] # Retorna una lista con los valores 
->>>>>>> 32cde2c802e980e25f904a390ee75f14f1616294
                  # desde start hasta end sin incluir end
 len(lista)  #length tamaño de lista
 lista.append(10, 20, 30) # añadir elemento al final
