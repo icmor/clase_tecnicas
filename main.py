@@ -35,16 +35,16 @@ frm_ordenar.rowconfigure(2, weight=1)
 lbl_ordenar = tk.Label(text="Algoritmos de Ordenamiento", master=frm_ordenar)
 lbl_ordenar.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
 btn_burbuja = tk.Button(text="Burbuja", master=frm_ordenar, height=5,
-                        command=lambda: bubble_sort(numeros))
+                        command=lambda: bubble_sort(numeros.copy()))
 btn_burbuja.grid(column=0, row=1, sticky="nsew", pady=(20, 0))
 btn_insercion = tk.Button(text="Insercion", master=frm_ordenar, height=5,
-                          command=lambda: insertion_sort(numeros))
+                          command=lambda: insertion_sort(numeros.copy()))
 btn_insercion.grid(column=1, row=1, sticky="nsew", pady=(20, 0))
 btn_quicksort = tk.Button(text="Quicksort", master=frm_ordenar, height=5,
-                          command=lambda: quicksort(numeros))
+                          command=lambda: quicksort(numeros.copy()))
 btn_quicksort.grid(column=0, row=2, sticky="nsew", pady=(0, 20))
 btn_heapsort = tk.Button(text="Heapsort", master=frm_ordenar, height=5,
-                         command=lambda: heapsort(numeros))
+                         command=lambda: heapsort(numeros.copy()))
 btn_heapsort.grid(column=1, row=2, sticky="nsew", pady=(0, 20))
 
 # Algoritmos de Búsqueda

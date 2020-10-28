@@ -11,7 +11,7 @@ def bubble_sort(numeros):
             if numeros[j] > numeros[j+1]: 
                 numeros[j], numeros[j+1] = numeros[j+1], numeros[j]
 
-    with open("ordenados_burbuja.txt") as file:
+    with open("ordenados_burbuja.txt", "w") as file:
         json.dump(numeros, file)
 
 def insertion_sort(numeros):
