@@ -5,7 +5,7 @@ import pathlib
 import tkinter as tk
 from ordenar import bubble_sort, insertion_sort, quicksort, heapsort
 from buscar import linear_search, binary_search
-from grafos import Graph
+from grafos import kruskal
 
 path = pathlib.Path.cwd().joinpath("valores.txt")
 numeros = []
@@ -72,7 +72,6 @@ btn_bin = tk.Button(text="Buscar", master=frm_buscar,
 btn_bin.grid(column=1, row=4, sticky="new")
 
 # Algoritmos con Grafos
-graph = Graph(10)
 frm_grafos = tk.Frame(relief=tk.GROOVE, borderwidth=2)
 frm_grafos.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
 frm_grafos.columnconfigure(0, weight=1)
@@ -80,7 +79,7 @@ frm_grafos.rowconfigure(1, weight=1)
 lbl_grafos = tk.Label(text="Algoritmos con Grafos", master=frm_grafos)
 lbl_grafos.grid(column=0, row=0, padx=15, pady=15)
 btn_kruskal = tk.Button(text="Algoritmo de Kruskal", master=frm_grafos,
-                        height=5, command=graph.kruskal)
+                        height=5, command=kruskal)
 btn_kruskal.grid(column=0, row=1, sticky="nsew", pady=(35, 35))
 
 root.mainloop()  # Loop Principal

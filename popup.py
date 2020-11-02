@@ -6,4 +6,4 @@ def popup(message):
     window = tk.Toplevel()
     window.title("")
     label = tk.Label(master=window, text=message)
-    label.pack()
+    label.pack(fill=tk.BOTH, expand=True)

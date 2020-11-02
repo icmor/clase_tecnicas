@@ -9,12 +9,12 @@ def bubble_sort(numeros):
     n = len(numeros)
     for i in range(n):
         for j in range(n-i-1):
-            if numeros[j] > numeros[j+1]: 
+            if numeros[j] > numeros[j+1]:
                 numeros[j], numeros[j+1] = numeros[j+1], numeros[j]
 
     total = round(time.perf_counter() - start, 2)
     with open("ordenados_burbuja.txt", "w") as file:
-        json.dump(numeros, file)
+        json.dump(numeros, file, indent=0)
     popup(f"¡Los números han sido ordenados!\n\
 Tiempo de ejecución: {total}s\n\
 Archivo con resultados: ordenados_burbuja.txt")
@@ -32,7 +32,7 @@ def insertion_sort(numeros):
 
     total = round(time.perf_counter() - start, 2)
     with open("ordenados_insercion.txt", "w") as file:
-        json.dump(numeros, file)
+        json.dump(numeros, file, indent=0)
     popup(f"¡Los números han sido ordenados!\n\
 Tiempo de ejecución: {total}s\n\
 Archivo con resultados: ordenados_insercion.txt")
@@ -65,35 +65,46 @@ def quicksort(numeros):
     total = round(time.perf_counter() - start, 4)
 
     with open("ordenados_quicksort.txt", "w") as file:
-        json.dump(numeros, file)
+        json.dump(numeros, file, indent=0)
     popup(f"¡Los números han sido ordenados!\n\
 Tiempo de ejecución: {total}s\n\
 Archivo con resultados: ordenados_quicksort.txt")
 
+
 def heapsort(numeros):
-    def heapify(numeros, tamano, posicion_actual): 
-        nodo_mayor = posicion_actual 
-        nodo_izquierdo = 2 * posicion_actual + 1    
-        nodo_derecho = 2 * posicion_actual + 2     
-  
-        if nodo_izquierdo < tamano and numeros[posicion_actual] < numeros[nodo_izquierdo]: 
+    def heapify(numeros, tamano, posicion_actual):
+        nodo_mayor = posicion_actual
+        nodo_izquierdo = 2 * posicion_actual + 1
+        nodo_derecho = 2 * posicion_actual + 2
+
+        if nodo_izquierdo < tamano \
+           and numeros[posicion_actual] < numeros[nodo_izquierdo]:
             nodo_mayor = nodo_izquierdo
-  
-        if nodo_derecho < tamano and numeros[nodo_mayor] < numeros[nodo_derecho]: 
-            nodo_mayor = nodo_derecho 
-   
-        if nodo_mayor != posicion_actual: 
-            numeros[posicion_actual], numeros[nodo_mayor] = numeros[nodo_mayor], numeros[posicion_actual]
-            
-            heapify(numeros, tamano, nodo_mayor) 
 
-    tamano = len(numeros) 
+        if nodo_derecho < tamano \
+           and numeros[nodo_mayor] < numeros[nodo_derecho]:
+            nodo_mayor = nodo_derecho
 
-    for posicion in range(tamano//2 - 1, -1, -1): 
-        heapify(numeros, tamano, posicion) 
-  
-    for posicion in range(tamano-1, 0, -1): 
+        if nodo_mayor != posicion_actual:
+            numeros[posicion_actual], numeros[nodo_mayor] \
+                = numeros[nodo_mayor], numeros[posicion_actual]
+
+            heapify(numeros, tamano, nodo_mayor)
+
+    start = time.perf_counter()
+
+    tamano = len(numeros)
+
+    for posicion in range(tamano//2 - 1, -1, -1):
+        heapify(numeros, tamano, posicion)
+
+    for posicion in range(tamano-1, 0, -1):
         numeros[posicion], numeros[0] = numeros[0], numeros[posicion]
-        heapify(numeros, posicion, 0) 
-    
-    return numeros
+        heapify(numeros, posicion, 0)
+
+    total = round(time.perf_counter() - start, 4)
+    with open("ordenados_heapsort.txt", "w") as file:
+        json.dump(numeros, file, indent=0)
+    popup(f"¡Los números han sido ordenados!\n\
+Tiempo de ejecución: {total}s\n\
+Archivo con resultados: ordenados_heapsort.txt")
