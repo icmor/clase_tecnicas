@@ -1,4 +1,11 @@
-# tecnicas_algoritmicas_2020
-Clase de Tecnicas Algoritmicas
-Tkinter GUI mostrando diferentes algoritmos basicos
+# Clase de Técnicas Algorítmicas, Unicaribe 2020
+Tkinter GUI mostrando diferentes algoritmos básicos:
+- Bubble Sort
+- Insertion Sort
+- Quicksort
+- Heapsort
+
+- Binary Search
+
+- Kruskal's Algorithm
 
