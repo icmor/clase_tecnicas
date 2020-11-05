@@ -1,4 +1,4 @@
-# Clase de Técnicas Algorítmicas, Unicaribe 2020
+* Clase de Técnicas Algorítmicas, Unicaribe 2020
 Tkinter GUI mostrando diferentes algoritmos básicos:
 - Bubble Sort
 - Insertion Sort
