@@ -3,9 +3,9 @@ Equipo: Iñaki Cornejo, Wenceslao Trejo, Adolfo Tun y Fernando Manzano"""
 
 import pathlib
 import tkinter as tk
-from ordenar import bubble_sort, insertion_sort, quicksort, heapsort
 from buscar import linear_search, binary_search
-from grafos import kruskal
+from mergesort import *
+from points import *
 
 path = pathlib.Path.cwd().joinpath("valores.txt")
 numeros = []
@@ -22,28 +22,28 @@ with open(path) as archivo:
 
 # Ventana Principal
 root = tk.Tk()
-root.title("Segundo Parcial")
+root.title("Tercer Parcial")
 
 # Configuracion de frames y botones
-# Algoritmos de ordenamiento
-frm_ordenar = tk.Frame(relief=tk.GROOVE, borderwidth=2)
-frm_ordenar.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
-frm_ordenar.columnconfigure(0, weight=1)
-frm_ordenar.columnconfigure(1, weight=1)
-frm_ordenar.rowconfigure(1, weight=1)
-frm_ordenar.rowconfigure(2, weight=1)
-lbl_ordenar = tk.Label(text="Algoritmos de Ordenamiento", master=frm_ordenar)
-lbl_ordenar.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
-btn_burbuja = tk.Button(text="Burbuja", master=frm_ordenar, height=5,
-                        command=lambda: bubble_sort(numeros.copy()))
-btn_burbuja.grid(column=0, row=1, sticky="nsew", pady=(20, 0))
-btn_insercion = tk.Button(text="Insercion", master=frm_ordenar, height=5,
-                          command=lambda: insertion_sort(numeros.copy()))
-btn_insercion.grid(column=1, row=1, sticky="nsew", pady=(20, 0))
-btn_quicksort = tk.Button(text="Quicksort", master=frm_ordenar, height=5,
+# Algoritmos Divide y Venceras
+frm_dv = tk.Frame(relief=tk.GROOVE, borderwidth=2)
+frm_dv.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+frm_dv.columnconfigure(0, weight=1)
+frm_dv.columnconfigure(1, weight=1)
+frm_dv.rowconfigure(1, weight=1)
+frm_dv.rowconfigure(2, weight=1)
+lbl_dv = tk.Label(text="Algoritmos Divide y Venceras", master=frm_dv)
+lbl_dv.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
+btn_mergesort = tk.Button(text="Mergesort", master=frm_dv, height=5,
+                          command=lambda: call_mergesort(numeros.copy()))
+btn_mergesort.grid(column=0, row=1, sticky="nsew", pady=(20, 0))
+btn_closest = tk.Button(text="Puntos", master=frm_dv, height=5,
+                          command=closest_points)
+btn_closest.grid(column=1, row=1, sticky="nsew", pady=(20, 0))
+btn_quicksort = tk.Button(text="Quicksort", master=frm_dv, height=5,
                           command=lambda: quicksort(numeros.copy()))
 btn_quicksort.grid(column=0, row=2, sticky="nsew", pady=(0, 20))
-btn_heapsort = tk.Button(text="Heapsort", master=frm_ordenar, height=5,
+btn_heapsort = tk.Button(text="Heapsort", master=frm_dv, height=5,
                          command=lambda: heapsort(numeros.copy()))
 btn_heapsort.grid(column=1, row=2, sticky="nsew", pady=(0, 20))
 
