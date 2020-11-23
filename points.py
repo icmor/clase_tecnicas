@@ -1,7 +1,7 @@
+''' Find closest pair of points '''
 from popup import popup
 import time
 from math import sqrt
-import random
 
 
 class Point:
@@ -22,7 +22,7 @@ class Point:
         return f"({self.x}, {self.y})"
 
 
-def closest_points():
+def closest_points(valores):
 
     def brute(array):
         minimum = Point(0, 0)
@@ -65,19 +65,13 @@ def closest_points():
             < strip_min.distance_to_point else strip_min
 
     points = []
-    random.seed()
-    rstart = time.perf_counter()
-    for i in range(1_000_000):
-        points.append(Point(random.randint(-10_000_000, 10_000_000),
-                            random.randint(-10_000_000, 10_000_000)))
-    rtotal = round(time.perf_counter() - rstart, 2)
+    for i in range(0, len(valores)-1, 2):
+        points.append(Point(valores[i], valores[i+1]))
     start = time.perf_counter()
     point = min_distance(sorted(points, key=lambda point: point.x))
     total = round(time.perf_counter() - start, 2)
-    popup(f"Se tomó un millón de puntos con coordenadas desde\n\
--10,000,000 hasta 10,000,000 \n\
-Los puntos más cercanos son {point} y {point.other}\n\
-con una distancia de {round(point.distance_to_point, 2)}\n\
-Tiempo de ejecución total: {total + rtotal}s\n\
-Tiempo para generar los puntos: {rtotal}\n\
-Tiempo de ejecución del algoritmo: {total}")
+    popup("Se tomó un millón de puntos con coordenadas desde\n"
+          + "-10,000,000 hasta 10,000,000 \n"
+          + f"Los puntos más cercanos son {point} y {point.other}\n"
+          + f"con una distancia de {round(point.distance_to_point, 2)}\n"
+          + f"Tiempo de ejecución: {total}s\n")
