@@ -3,12 +3,17 @@ Equipo: Iñaki Cornejo, Wenceslao Trejo, Adolfo Tun y Fernando Manzano"""
 
 import pathlib
 import tkinter as tk
-from buscar import linear_search, binary_search
+import json
 from mergesort import *
 from points import *
+from suma_max import suma_max
+from karatsuba import karatsuba
+from factorial import factorial
+from fibonacci import fibonacci
+from hanoi import hanoi
+from pascal import pascal
 
 path = pathlib.Path.cwd().joinpath("valores.txt")
-numeros = []
 
 # Checamos si existe el archivo valores.txt
 if not path.exists():
