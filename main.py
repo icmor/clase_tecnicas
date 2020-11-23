@@ -16,9 +16,8 @@ if not path.exists():
 
 
 # Almacenamos el contenido de valores.txt en un arreglo de enteros.
-with open(path) as archivo:
-    for linea in archivo:
-        numeros.append(int(linea.strip()))
+with open(path, 'r') as file:
+    numeros = json.load(file)
 
 # Ventana Principal
 root = tk.Tk()
