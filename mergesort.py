@@ -1,3 +1,4 @@
+''' Mergesort Algorithm '''
 from popup import popup
 import json
 import time
@@ -15,7 +16,6 @@ def mergesort(array):
         i = 0
         j = 0
         k = 0
-
         while i < len(left) and j < len(right):
             if left[i] < right[j]:
                 array[k] = left[i]
@@ -45,7 +45,6 @@ def call_mergesort(numeros):
     total = round(time.perf_counter() - start, 2)
     with open("ordenados_mergesort.txt", "w") as file:
         json.dump(numeros, file, indent=0)
-        popup(f"¡Los números han sido ordenados!\n\
+        popup(f"¡Ordenamos 2,000,000 de números!\n\
 Tiempo de ejecución: {total}s\n\
 Archivo con resultados: ordenados_mergesort.txt")
-
