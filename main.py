@@ -41,49 +41,36 @@ lbl_dv.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
 btn_mergesort = tk.Button(text="Mergesort", master=frm_dv, height=5,
                           command=lambda: call_mergesort(numeros.copy()))
 btn_mergesort.grid(column=0, row=1, sticky="nsew", pady=(20, 0))
-btn_closest = tk.Button(text="Puntos", master=frm_dv, height=5,
-                          command=closest_points)
+btn_closest = tk.Button(text="Puntos\nmás cercanos", master=frm_dv, height=5,
+                          command=lambda: closest_points(numeros))
 btn_closest.grid(column=1, row=1, sticky="nsew", pady=(20, 0))
-btn_quicksort = tk.Button(text="Quicksort", master=frm_dv, height=5,
-                          command=lambda: quicksort(numeros.copy()))
-btn_quicksort.grid(column=0, row=2, sticky="nsew", pady=(0, 20))
-btn_heapsort = tk.Button(text="Heapsort", master=frm_dv, height=5,
-                         command=lambda: heapsort(numeros.copy()))
-btn_heapsort.grid(column=1, row=2, sticky="nsew", pady=(0, 20))
+btn_sum = tk.Button(text="Suma máxima\n de un arreglo", master=frm_dv,
+                          height=5, command=lambda: suma_max(numeros))
+btn_sum.grid(column=0, row=2, sticky="nsew", pady=(0, 20))
+btn_karatsuba = tk.Button(text="Karatsuba", master=frm_dv, height=5,
+                         command=lambda: karatsuba(numeros[:100_000]))
+btn_karatsuba.grid(column=1, row=2, sticky="nsew", pady=(0, 20))
 
-# Algoritmos de Búsqueda
-frm_buscar = tk.Frame(relief=tk.GROOVE, borderwidth=2)
-frm_buscar.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
-frm_buscar.columnconfigure(0, weight=1)
-lbl_buscar = tk.Label(text="Algoritmos de Búsqueda", master=frm_buscar)
-lbl_buscar.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
-lbl_lin = tk.Label(text="Búsqueda Lineal", master=frm_buscar, relief=tk.SUNKEN)
-lbl_lin.grid(column=0, row=1, columnspan=2, sticky="new", pady=(20, 0))
-linear_search_val = tk.StringVar()
-ent_lin = tk.Entry(master=frm_buscar, textvariable=linear_search_val)
-ent_lin.grid(column=0, row=2, sticky="new", pady=(5, 5))
-btn_lin = tk.Button(text="Buscar", master=frm_buscar,
-                    command=lambda: linear_search(linear_search_val, numeros))
-btn_lin.grid(column=1, row=2, sticky="new")
-lbl_bin = tk.Label(text="Búsqueda Binaria", master=frm_buscar,
-                   relief=tk.SUNKEN)
-lbl_bin.grid(column=0, row=3, columnspan=2, sticky="new")
-binary_search_val = tk.StringVar()
-ent_bin = tk.Entry(master=frm_buscar, textvariable=binary_search_val)
-ent_bin.grid(column=0, row=4, sticky="new", pady=(5, 5))
-btn_bin = tk.Button(text="Buscar", master=frm_buscar,
-                    command=lambda: binary_search(binary_search_val, numeros))
-btn_bin.grid(column=1, row=4, sticky="new")
-
-# Algoritmos con Grafos
-frm_grafos = tk.Frame(relief=tk.GROOVE, borderwidth=2)
-frm_grafos.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
-frm_grafos.columnconfigure(0, weight=1)
-frm_grafos.rowconfigure(1, weight=1)
-lbl_grafos = tk.Label(text="Algoritmos con Grafos", master=frm_grafos)
-lbl_grafos.grid(column=0, row=0, padx=15, pady=15)
-btn_kruskal = tk.Button(text="Algoritmo de Kruskal", master=frm_grafos,
-                        height=5, command=kruskal)
-btn_kruskal.grid(column=0, row=1, sticky="nsew", pady=(35, 35))
+# Algoritmos Recursivos
+frm_recur = tk.Frame(relief=tk.GROOVE, borderwidth=2)
+frm_recur.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+frm_recur.columnconfigure(0, weight=1)
+frm_recur.columnconfigure(1, weight=1)
+frm_recur.rowconfigure(1, weight=1)
+frm_recur.rowconfigure(2, weight=1)
+lbl_recur = tk.Label(text="Algoritmos Recursivos", master=frm_recur)
+lbl_recur.grid(column=0, row=0, columnspan=2, padx=15, pady=15)
+btn_factorial = tk.Button(text="Factorial", master=frm_recur, height=5,
+                          command=factorial)
+btn_factorial.grid(column=0, row=1, sticky="nsew", pady=(20, 0))
+btn_fib = tk.Button(text="Fibonacci", master=frm_recur, height=5,
+                          command=fibonacci)
+btn_fib.grid(column=1, row=1, sticky="nsew", pady=(20, 0))
+btn_hanoi = tk.Button(text="Torres de Hanoi", master=frm_recur,
+                          height=5, command=lambda: hanoi(22))
+btn_hanoi.grid(column=0, row=2, sticky="nsew", pady=(0, 20))
+btn_pascal = tk.Button(text="Triangulo de\nPascal", master=frm_recur, height=5,
+                         command=lambda: pascal(2_000))
+btn_pascal.grid(column=1, row=2, sticky="nsew", pady=(0, 20))
 
 root.mainloop()  # Loop Principal
